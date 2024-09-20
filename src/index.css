@@ -1,0 +1,39 @@
+* {
+  width: fit-content;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  font-size: 16px;
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1 {
+  font-size: 2.2em;
+  line-height: 1.1;
+  /* background-color: red; */
+  background: linear-gradient(to right, #ff7e5f, #feb47b);
+  /* -webkit-background-clip: text; */
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin: 0 auto;
+}
+
+.head {
+  border-bottom: 1px solid burlywood;
+
+  width: 100vw;
+}
