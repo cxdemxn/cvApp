@@ -26,17 +26,9 @@ function EditInputGroup({ inputId, fieldNote, placeholder, label, onChange }) {
     )
 }
 
-export default function() {
+export default function({ personalDeet, handlePersonalDeetChange }) {
 
-    const [ personalDeet, setPersonalDeet ] = useState({fullName: '', email: '', phoneNumber: '', address: ''})
-
-    function handlePersonalDeetChange(id, value) {
-        const newPersonalDeet = { ...personalDeet }
-
-        newPersonalDeet[id] = value
-
-        setPersonalDeet(newPersonalDeet)
-    }
+    
 
 
     return (

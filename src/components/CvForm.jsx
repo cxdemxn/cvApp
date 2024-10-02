@@ -1,9 +1,9 @@
 import CvPersonalDeet from "./CvPersonalDeet";
 
-export default function() {
+export default function({ personalDeet }) {
     return (
         <div className="cv-form">
-            <CvPersonalDeet />
+            <CvPersonalDeet personalDeet={personalDeet} />
         </div>
     )
 }
