@@ -1,30 +1,4 @@
-import { useState } from "react"
-
-function EditInputGroup({ inputId, fieldNote, placeholder, label, onChange }) {
-    return (
-        <div className="form-field-group">
-            <div className="field-label">
-                <label htmlFor={inputId}>
-                    {label}
-                    {
-                        fieldNote
-                        &&
-                        (
-                            <span className="field-note">{fieldNote}</span>
-                        )
-                    }
-                </label>
-                
-            </div>
-            <input 
-                type="text" 
-                id={inputId} 
-                placeholder={placeholder} 
-                onChange={(e) => { onChange(inputId, e.target.value) }} 
-            />
-        </div>
-    )
-}
+import EditInputGroup from "./EditInputGroup"
 
 export default function({ personalDeet, handlePersonalDeetChange }) {
 
@@ -33,7 +7,7 @@ export default function({ personalDeet, handlePersonalDeetChange }) {
 
     return (
         <form action="" className="personalDeet">
-
+            <h2>Personal Details</h2>
             <EditInputGroup 
                 label={'Full Name'}
                 inputId={'fullName'} 

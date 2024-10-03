@@ -1,7 +1,5 @@
 export default function({ personalDeet }) {
 
-    console.log(personalDeet)
-
     return (
         <div className="cv-personal-details">
             <div className="personal-details-head">
