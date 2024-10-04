@@ -7,6 +7,20 @@ import viteLogo from '/vite.svg'
 function App() {
 
   const [ personalDeet, setPersonalDeet ] = useState({fullName: '', email: '', phoneNumber: '', address: ''})
+  const [ educationList, setEducationList ] = useState([])
+  const [ currentEdu, setCurrentEdu ] = useState({id: '', school: '', degree: '', startDate: '', endDate: '', location: ''})
+
+
+    function handleSaveForm(e) {
+        e.preventDefault()
+        const newEduList = [ ...educationList ]
+        newEduList.push(currentEdu)
+
+        // console.log(newEduList)
+        setEducationList(newEduList)
+        setCurrentEdu({id: '', school: '', degree: '', startDate: '', endDate: '', location: ''})
+        e.target.reset()
+    }
 
     function handlePersonalDeetChange(id, value) {
         const newPersonalDeet = { ...personalDeet }
@@ -16,14 +30,22 @@ function App() {
         setPersonalDeet(newPersonalDeet)
     }
 
+
   return (
     <div className='app'>
       <EditSection 
         personalDeet={personalDeet} 
         handlePersonalDeetChange={handlePersonalDeetChange}
+
+        currentEdu={currentEdu}
+        setCurrentEdu={setCurrentEdu}
+        handleSaveForm={handleSaveForm}
       />
 
-      <CvForm personalDeet={personalDeet}/>
+      <CvForm 
+        personalDeet={personalDeet}
+        educationList={educationList}
+      />
     </div>
   )
 }

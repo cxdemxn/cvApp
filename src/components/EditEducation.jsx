@@ -1,7 +1,12 @@
 import EditEducationForm from "./EditEducationForm"
 
 
-export default function() {
+export default function({ 
+    currentEdu,
+    setCurrentEdu,
+    handleSaveForm 
+
+}) {
     return (
         <div className="edit-section">
             <div className="edit-section-head">
@@ -13,7 +18,11 @@ export default function() {
                 <i className="edit-section-dropdown-icon"></i>
             </div>
 
-            <EditEducationForm />
+            <EditEducationForm 
+                currentEdu={currentEdu}
+                setCurrentEdu={setCurrentEdu}
+                handleSaveForm={handleSaveForm}
+            />
         </div>
     )
 }

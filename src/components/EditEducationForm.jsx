@@ -1,23 +1,45 @@
 import { useState } from "react"
 import EditInputGroup from "./EditInputGroup"
+import { v4 as uuidv4 } from 'uuid'
 
+export default function({ 
+    currentEdu,
+    setCurrentEdu,
+    handleSaveForm
 
-export default function() {
+}) {
     const [ educationList, setEducationList ] = useState([])
+    // const [ currentEdu, setCurrentEdu ] = useState({id: '', school: '', degree: '', startDate: '', endDate: '', location: ''})
 
-    function handleSaveForm(e) {
-        e.preventDefault()
-        console.log(e.target)
+    // function handleSaveForm(e) {
+    //     e.preventDefault()
+    //     const newEduList = [ ...educationList ]
+    //     newEduList.push(currentEdu)
+
+    //     console.log(newEduList)
+    //     setEducationList(newEduList)
+    //     e.target.reset()
+    // }
+
+    function handleChanges(id, value) {
+        const newEdu = { ...currentEdu }
+        if (!newEdu['id'])
+            newEdu['id'] = uuidv4()
+
+        newEdu[id] = value
+        // console.log(newEdu)
+
+
+        setCurrentEdu(newEdu)
     }
 
     return (
         <form action="" className="personalDeet" onSubmit={ handleSaveForm }>
-            <h2>Personal Details</h2>
             <EditInputGroup 
                 label={'School'}
                 inputId={'school'} 
                 placeholder={'Enter school / university'}
-                // onChange={handlePersonalDeetChange}
+                onChange={handleChanges}
             />  
 
             <EditInputGroup 
@@ -25,7 +47,7 @@ export default function() {
                 inputId={'degree'} 
                 placeholder={'Enter degree / field of study'}
                 fieldNote={'Required'}
-                // onChange={handlePersonalDeetChange}
+                onChange={handleChanges}
             />  
 
             <EditInputGroup 
@@ -33,7 +55,7 @@ export default function() {
                 inputId={'startDate'} 
                 placeholder={'Enter start date'}
                 fieldNote={'Required'}
-                // onChange={handlePersonalDeetChange}
+                onChange={handleChanges}
             />  
 
             <EditInputGroup 
@@ -41,7 +63,7 @@ export default function() {
                 inputId={'endDate'} 
                 placeholder={'Enter end date'}
                 fieldNote={'Required'}
-                // onChange={handlePersonalDeetChange}
+                onChange={handleChanges}
             />  
 
             <EditInputGroup 
@@ -49,7 +71,7 @@ export default function() {
                 inputId={'location'} 
                 placeholder={'Enter location'}
                 fieldNote={'Optional'}
-                // onChange={handlePersonalDeetChange}
+                onChange={handleChanges}
             />  
 
             <div className="form-controls">

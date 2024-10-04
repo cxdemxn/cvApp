@@ -5,11 +5,27 @@ import EditPersonalDeet from "./EditPersonalDeet"
 
 
 
-export default function({ personalDeet, handlePersonalDeetChange}) {
+export default function({ 
+    personalDeet, 
+    handlePersonalDeetChange, 
+
+    currentEdu,
+    setCurrentEdu,
+    handleSaveForm
+
+}) {
     return (
         <div className="edit-section">
-            <EditPersonalDeet personalDeet={personalDeet} handlePersonalDeetChange={handlePersonalDeetChange} />
-            <EditEducation />
+            <EditPersonalDeet 
+                personalDeet={personalDeet} 
+                handlePersonalDeetChange={handlePersonalDeetChange}
+            />
+
+            <EditEducation 
+                currentEdu={currentEdu}
+                setCurrentEdu={setCurrentEdu}
+                handleSaveForm={handleSaveForm}
+            />
         </div>
     )
 }
