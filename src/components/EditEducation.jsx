@@ -1,14 +1,17 @@
 import EditEducationForm from "./EditEducationForm"
+import EditEducationList from "./EditEducationList"
 
 
 export default function({ 
     currentEdu,
     setCurrentEdu,
-    handleSaveForm 
+    handleSaveForm,
+    educationList
+
 
 }) {
     return (
-        <div className="edit-section">
+        <div className="edit-section-subgroup">
             <div className="edit-section-head">
                 <div className="edit-section-title">
                     <i></i>
@@ -18,11 +21,17 @@ export default function({
                 <i className="edit-section-dropdown-icon"></i>
             </div>
 
-            <EditEducationForm 
-                currentEdu={currentEdu}
-                setCurrentEdu={setCurrentEdu}
-                handleSaveForm={handleSaveForm}
-            />
+            <div className="edit-section-body">
+                <EditEducationList 
+                    educationList={educationList}
+                />
+
+                <EditEducationForm 
+                    currentEdu={currentEdu}
+                    setCurrentEdu={setCurrentEdu}
+                    handleSaveForm={handleSaveForm}
+                />
+            </div>
         </div>
     )
 }

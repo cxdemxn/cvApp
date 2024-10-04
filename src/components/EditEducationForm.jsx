@@ -8,18 +8,7 @@ export default function({
     handleSaveForm
 
 }) {
-    const [ educationList, setEducationList ] = useState([])
-    // const [ currentEdu, setCurrentEdu ] = useState({id: '', school: '', degree: '', startDate: '', endDate: '', location: ''})
-
-    // function handleSaveForm(e) {
-    //     e.preventDefault()
-    //     const newEduList = [ ...educationList ]
-    //     newEduList.push(currentEdu)
-
-    //     console.log(newEduList)
-    //     setEducationList(newEduList)
-    //     e.target.reset()
-    // }
+    
 
     function handleChanges(id, value) {
         const newEdu = { ...currentEdu }
@@ -34,7 +23,7 @@ export default function({
     }
 
     return (
-        <form action="" className="personalDeet" onSubmit={ handleSaveForm }>
+        <form action="" className="edit-section-subgroup-form" onSubmit={ handleSaveForm }>
             <EditInputGroup 
                 label={'School'}
                 inputId={'school'} 

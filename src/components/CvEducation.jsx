@@ -1,32 +1,12 @@
-function EducationListItem({
-    education
- }) {
+import CvEducationListItem from "./CvEducationListItem"
 
-    console.log(education)
-
-    return (
-        <li>
-            <div className="list-left">
-                <div>{education.startDate} - {education.endDate}</div> 
-                <div>{education.location}</div>
-            </div>
-
-            <div className="list-right">
-                <div><b>{education.school}</b></div>
-                <div>{education.degree}</div>
-            </div>
-        </li>
-    )
- }
 
 export default function({
     educationList
 }) {
 
-console.log(educationList)
-
     const fEduList = educationList.map((education) => (
-        <EducationListItem key={education.id} education={education} />
+        <CvEducationListItem key={education.id} education={education} />
     ))
     // console.log(fEduList)
 

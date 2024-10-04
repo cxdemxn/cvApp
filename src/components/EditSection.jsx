@@ -11,11 +11,12 @@ export default function({
 
     currentEdu,
     setCurrentEdu,
-    handleSaveForm
+    handleSaveForm,
+    educationList
 
 }) {
     return (
-        <div className="edit-section">
+        <div className="cv-edit-section">
             <EditPersonalDeet 
                 personalDeet={personalDeet} 
                 handlePersonalDeetChange={handlePersonalDeetChange}
@@ -25,6 +26,7 @@ export default function({
                 currentEdu={currentEdu}
                 setCurrentEdu={setCurrentEdu}
                 handleSaveForm={handleSaveForm}
+                educationList={educationList}
             />
         </div>
     )
