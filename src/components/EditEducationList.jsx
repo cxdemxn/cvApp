@@ -1,23 +1,16 @@
-function EditEducationListItem({education}) {
-
-    // console.log(education)
-    return (
-        <button type="button" className="edit-list-item" data-id={education.id}>
-            <span className="edit-list-item-text">{education.school}</span>
-            <i className="hide-edit-item-icon"></i>
-        </button>
-    )
-}
+import EditEducationListItem from "./EditEducationListItem"
 
 export default function({
-    educationList
+    educationList,
+    setIsFormActive,
+    handleSelectedItem
 
 }) {
 
-    console.log(educationList)
+    // console.log(educationList)
 
     const fEduList = educationList.map(education => (
-        <EditEducationListItem key={education.id} education={education} />
+        <EditEducationListItem key={education.id} education={education} handleSelectedItem={handleSelectedItem} />
     ))
 
     return (
@@ -26,7 +19,7 @@ export default function({
                 {fEduList}
             </ul>
 
-            <button type="button" className="add-button">+ Education</button>
+            <button type="button" className="add-button" onClick={() => setIsFormActive(true)}>+ Education</button>
         </div>
     )
 }

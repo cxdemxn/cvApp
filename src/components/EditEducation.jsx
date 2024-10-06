@@ -1,3 +1,4 @@
+import { useState } from "react"
 import EditEducationForm from "./EditEducationForm"
 import EditEducationList from "./EditEducationList"
 
@@ -6,10 +7,15 @@ export default function({
     currentEdu,
     setCurrentEdu,
     handleSaveForm,
-    educationList
-
+    educationList,
+    isFormActive, 
+    setIsFormActive,
+    handleSelectedItem,
+    selectedEdu,
 
 }) {
+    
+
     return (
         <div className="edit-section-subgroup">
             <div className="edit-section-head">
@@ -22,15 +28,32 @@ export default function({
             </div>
 
             <div className="edit-section-body">
-                <EditEducationList 
-                    educationList={educationList}
-                />
 
-                <EditEducationForm 
-                    currentEdu={currentEdu}
-                    setCurrentEdu={setCurrentEdu}
-                    handleSaveForm={handleSaveForm}
-                />
+                {
+                    !isFormActive
+                    ?
+                    (
+                        <EditEducationList 
+                            educationList={educationList}
+                            setIsFormActive={setIsFormActive}
+                            handleSelectedItem={handleSelectedItem}
+                        />
+                    )
+                    :
+                    (
+                        <EditEducationForm 
+                            currentEdu={currentEdu}
+                            setCurrentEdu={setCurrentEdu}
+                            handleSaveForm={handleSaveForm}
+                            selectedEdu={selectedEdu}
+
+                            setIsFormActive={setIsFormActive}
+                        />
+                    )
+                }
+                
+
+                
             </div>
         </div>
     )

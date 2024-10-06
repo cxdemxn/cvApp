@@ -12,7 +12,13 @@ export default function({
     currentEdu,
     setCurrentEdu,
     handleSaveForm,
-    educationList
+    educationList,
+    handleSelectedItem,
+    selectedEdu,
+
+
+    isFormActive, 
+    setIsFormActive
 
 }) {
     return (
@@ -27,6 +33,11 @@ export default function({
                 setCurrentEdu={setCurrentEdu}
                 handleSaveForm={handleSaveForm}
                 educationList={educationList}
+                handleSelectedItem={handleSelectedItem}
+                selectedEdu={selectedEdu}
+
+                isFormActive={isFormActive}
+                setIsFormActive={setIsFormActive}
             />
         </div>
     )

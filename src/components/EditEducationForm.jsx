@@ -5,10 +5,15 @@ import { v4 as uuidv4 } from 'uuid'
 export default function({ 
     currentEdu,
     setCurrentEdu,
-    handleSaveForm
+    handleSaveForm,
+    setIsFormActive
 
 }) {
-    
+
+    // console.log(currentEdu)
+    function updateArray() {
+        
+    }
 
     function handleChanges(id, value) {
         const newEdu = { ...currentEdu }
@@ -29,6 +34,7 @@ export default function({
                 inputId={'school'} 
                 placeholder={'Enter school / university'}
                 onChange={handleChanges}
+                value={currentEdu.id ? currentEdu['school'] : ''}
             />  
 
             <EditInputGroup 
@@ -37,6 +43,8 @@ export default function({
                 placeholder={'Enter degree / field of study'}
                 fieldNote={'Required'}
                 onChange={handleChanges}
+                value={currentEdu.id ? currentEdu['degree'] : ''}
+
             />  
 
             <EditInputGroup 
@@ -45,6 +53,8 @@ export default function({
                 placeholder={'Enter start date'}
                 fieldNote={'Required'}
                 onChange={handleChanges}
+                value={currentEdu.id ? currentEdu['startDate'] : ''}
+
             />  
 
             <EditInputGroup 
@@ -53,6 +63,8 @@ export default function({
                 placeholder={'Enter end date'}
                 fieldNote={'Required'}
                 onChange={handleChanges}
+                value={currentEdu.id ? currentEdu['endDate'] : ''}
+
             />  
 
             <EditInputGroup 
@@ -61,13 +73,15 @@ export default function({
                 placeholder={'Enter location'}
                 fieldNote={'Optional'}
                 onChange={handleChanges}
+                value={currentEdu.id ? currentEdu['location'] : ''}
+
             />  
 
             <div className="form-controls">
                 <button type="button">Delete</button>
 
                 <div className="form-control-group">
-                    <button type="button">Cancel</button>
+                    <button type="button" onClick={() => setIsFormActive(false)}>Cancel</button>
                     <button type="submit" >Save</button>
                 </div>
             </div>

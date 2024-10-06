@@ -1,4 +1,12 @@
-export default function EditInputGroup({ inputId, fieldNote, placeholder, label, onChange }) {
+export default function EditInputGroup({ 
+    inputId, 
+    fieldNote, 
+    placeholder, 
+    label, 
+    onChange ,
+    value
+    
+}) {
     return (
         <div className="form-field-group">
             <div className="field-label">
@@ -18,7 +26,8 @@ export default function EditInputGroup({ inputId, fieldNote, placeholder, label,
                 type="text" 
                 id={inputId} 
                 placeholder={placeholder} 
-                onChange={(e) => { onChange(inputId, e.target.value) }} 
+                onChange={(e) => { onChange(inputId, e.target.value) }}
+                value={value}
             />
         </div>
     )
