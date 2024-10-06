@@ -12,6 +12,8 @@ export default function({
     setIsFormActive,
     handleSelectedItem,
     selectedEdu,
+    resetForm,
+    updateEduList,
 
 }) {
     
@@ -46,8 +48,9 @@ export default function({
                             setCurrentEdu={setCurrentEdu}
                             handleSaveForm={handleSaveForm}
                             selectedEdu={selectedEdu}
+                            updateEduList={updateEduList}
 
-                            setIsFormActive={setIsFormActive}
+                            resetForm={resetForm}
                         />
                     )
                 }

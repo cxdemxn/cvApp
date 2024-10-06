@@ -15,10 +15,12 @@ export default function({
     educationList,
     handleSelectedItem,
     selectedEdu,
+    updateEduList,
 
 
     isFormActive, 
-    setIsFormActive
+    setIsFormActive,
+    resetForm
 
 }) {
     return (
@@ -35,9 +37,11 @@ export default function({
                 educationList={educationList}
                 handleSelectedItem={handleSelectedItem}
                 selectedEdu={selectedEdu}
+                updateEduList={updateEduList}
 
                 isFormActive={isFormActive}
                 setIsFormActive={setIsFormActive}
+                resetForm={resetForm}
             />
         </div>
     )

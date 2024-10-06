@@ -13,31 +13,48 @@ function App() {
   const [ selectedEdu, setSelectedEdu ] = useState({})
   const [ isFormEdit, setIsFormEdit ] = useState(false)
 
+    
     function handleSaveForm(e) {
-        e.preventDefault()
-        let updatedEduList
-        if (isFormEdit) {
-          updatedEduList = educationList.map(education => {
-            if (education.id === currentEdu.id) {
-              education = { ...currentEdu }
-            }
-            return education
-          })
+      e.preventDefault()
+      
+      if (isFormEdit) {
+        updateEduList()
+      } else {
+        appendEduList()
+      }
 
-          console.log(updatedEduList)
-          // updatedEduList = [ ...educationList ]
-        } else {
-          updatedEduList = [ ...educationList ]
-          updatedEduList.push(currentEdu)
+      e.target.reset()
+      resetForm()
+      
+    }
+    
+    function updateEduList(currentEduFromInput) {
+      const updatedEduList = educationList.map(education => {
+        if (currentEduFromInput && (education.id === currentEduFromInput.id)) // checks if value comes directly from input
+          education = { ...currentEduFromInput }
+        else if (education.id === currentEdu.id) // defaults to form's last state when save is clicked
+          education = { ...currentEdu }
+        
 
-        }
+        return education
+      })
 
-        // console.log(updatedEduList)
-        setEducationList(updatedEduList)
-        setCurrentEdu({id: '', school: '', degree: '', startDate: '', endDate: '', location: ''})
-        e.target.reset()
-        setIsFormEdit(false)
-        setIsFormActive(!isFormActive)
+      // console.log(updatedEduList)
+
+      setEducationList(updatedEduList)
+    }
+
+    function appendEduList() {
+      const updatedEduList = [ ...educationList ]
+      updatedEduList.push(currentEdu)
+
+      setEducationList(updatedEduList)
+    }
+
+    function resetForm() {
+      setCurrentEdu({id: '', school: '', degree: '', startDate: '', endDate: '', location: ''})
+      setIsFormEdit(!isFormEdit)
+      setIsFormActive(!isFormActive)
     }
 
     function handlePersonalDeetChange(id, value) {
@@ -71,11 +88,12 @@ function App() {
         handleSaveForm={handleSaveForm}
         educationList={educationList}
         handleSelectedItem={handleSelectedItem}
+        updateEduList={updateEduList}
 
         isFormActive={isFormActive}
         setIsFormActive={setIsFormActive}
 
-
+        resetForm={resetForm}
       />
 
       <CvForm 

@@ -6,26 +6,25 @@ export default function({
     currentEdu,
     setCurrentEdu,
     handleSaveForm,
-    setIsFormActive
+    resetForm,
+    updateEduList,
 
 }) {
-
-    // console.log(currentEdu)
-    function updateArray() {
-        
+    
+    // immediately gives the new form an id when clicked
+    if (!currentEdu.id) {
+        currentEdu.id = uuidv4()
     }
+
 
     function handleChanges(id, value) {
-        const newEdu = { ...currentEdu }
-        if (!newEdu['id'])
-            newEdu['id'] = uuidv4()
+        const updatedEdu = { ...currentEdu }
+        updatedEdu[id] = value
 
-        newEdu[id] = value
-        // console.log(newEdu)
-
-
-        setCurrentEdu(newEdu)
+        setCurrentEdu(updatedEdu)
+        updateEduList(updatedEdu) // sends changes to the form to be updated in the array concurrently
     }
+
 
     return (
         <form action="" className="edit-section-subgroup-form" onSubmit={ handleSaveForm }>
@@ -34,7 +33,7 @@ export default function({
                 inputId={'school'} 
                 placeholder={'Enter school / university'}
                 onChange={handleChanges}
-                value={currentEdu.id ? currentEdu['school'] : ''}
+                value={currentEdu['school'] ?? currentEdu['school']}
             />  
 
             <EditInputGroup 
@@ -81,7 +80,7 @@ export default function({
                 <button type="button">Delete</button>
 
                 <div className="form-control-group">
-                    <button type="button" onClick={() => setIsFormActive(false)}>Cancel</button>
+                    <button type="button" onClick={ resetForm }>Cancel</button>
                     <button type="submit" >Save</button>
                 </div>
             </div>
